@@ -277,7 +277,7 @@ export default {
 
 <style lang="scss" scoped>
 .echarts{
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
 }
 </style>

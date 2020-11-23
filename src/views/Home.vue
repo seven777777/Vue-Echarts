@@ -1,17 +1,41 @@
 <template>
     <div class="home">
-        <img alt="Vue logo" src="../assets/logo.png">
-        <Echarts class="chart-box-wrap" :options="opt" />
-        <Echarts :options="opt" />
+        <!-- <Echarts class="chart-box-wrap" :options="opt" />
+        <Echarts :options="opt" /> -->
+        <div class="navBar">
+            <NavList />
+        </div>
+        <div class="main-content">
+            <div class="block-item-box">
+                <div class="item-box--title">12344</div>
+                <div class="item-box--block charts">
+                    <Echarts :options="opt" />
+                </div>
+                <div class="item-box--block desc">
+                    123
+                </div>
+            </div>
+            <div class="block-item-box">
+                <div class="item-box--title">12344</div>
+                <div class="item-box--block charts">
+                    <Echarts :options="opt" />
+                </div>
+                <div class="item-box--block desc">
+                    123
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import NavList from '@/components/NavList'
 import Echarts from '@/components/Echarts.vue'
 
 export default {
     name: 'Home',
     components: {
+        NavList,
         Echarts
     },
     data(){
@@ -38,8 +62,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.chart-box-wrap{
-    width: 50%;
-    height: 400px;
+.home{
+    height: 100%;
+    display: flex;
+    .navBar{
+        width: 194px;
+        background: linear-gradient(0deg,#2f3041,#36394d);
+        box-shadow: 6px 0 6px 0 rgba(0,0,0,.25);
+        padding: 12px 0;
+        overflow: hidden;
+    }
+    .main-content{
+        flex: 1;
+        height: 100%;
+        overflow-y: auto;
+        @include scroll-style-inner(rgba(144,147,153,.5));
+    }
 }
 </style>
