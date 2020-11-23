@@ -1,9 +1,12 @@
 <template>
     <div class="home">
-        <!-- <Echarts class="chart-box-wrap" :options="opt" />
-        <Echarts :options="opt" /> -->
         <div class="navBar">
-            <NavList />
+            <div class="searchBar">
+                <input type="text" placeholder="搜索" class="search-ipt" v-model="searchKey" />
+            </div>
+            <div class="listCon">
+                <NavList />
+            </div>
         </div>
         <div class="main-content">
             <div class="block-item-box">
@@ -40,6 +43,7 @@ export default {
     },
     data(){
         return {
+            searchKey:'',
             opt:{
                 xAxis: {
                     type: 'category',
@@ -67,10 +71,34 @@ export default {
     display: flex;
     .navBar{
         width: 194px;
+        height: 100%;
         background: linear-gradient(0deg,#2f3041,#36394d);
         box-shadow: 6px 0 6px 0 rgba(0,0,0,.25);
         padding: 12px 0;
         overflow: hidden;
+        .searchBar{
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .search-ipt{
+                background-color: rgba(45,46,62,.8);
+                border: 1px solid #2d2e3e;
+                border-radius: 4px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 13px;
+                padding-left: 10px;
+                color: #edf0f1;
+                outline: none;
+                &:focus{
+                    border-color: #0091e6;
+                }
+            }
+        }
+        .listCon{
+            height: calc(100% - 40px);
+        }
     }
     .main-content{
         flex: 1;
