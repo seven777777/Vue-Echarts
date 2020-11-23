@@ -1,6 +1,7 @@
 // const webpack = require("webpack");
 // const CompressionPlugin = require('compression-webpack-plugin');//引入gzip压缩插件
 module.exports = {
+    publicPath: './',
 //     lintOnSave: false,
 //     productionSourceMap: false,
 //     configureWebpack: {
