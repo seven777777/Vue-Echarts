@@ -5,62 +5,68 @@
                 <input type="text" placeholder="搜索" class="search-ipt" v-model="searchKey" />
             </div>
             <div class="listCon">
-                <NavList />
+                <NavList ref="navList" :listData="showList" @change="scroll" />
             </div>
         </div>
         <div class="main-content">
-            <div class="block-item-box">
-                <div class="item-box--title">12344</div>
-                <div class="item-box--block charts">
-                    <Echarts :options="opt" />
-                </div>
-                <div class="item-box--block desc">
-                    123
-                </div>
-            </div>
-            <div class="block-item-box">
-                <div class="item-box--title">12344</div>
-                <div class="item-box--block charts">
-                    <Echarts :options="opt" />
-                </div>
-                <div class="item-box--block desc">
-                    123
-                </div>
-            </div>
+            <component
+                :id="'comp-' +  index"
+                v-for="(comp,index) in dataList"
+                :key="index"
+                :title="comp.label"
+                :is="allComps[comp.component]">
+            </component>
         </div>
     </div>
 </template>
 
 <script>
-import NavList from '@/components/NavList'
-import Echarts from '@/components/Echarts.vue'
+import dataList from './listData'
+import allComps from './components/componentsSet'
 
 export default {
     name: 'Home',
-    components: {
-        NavList,
-        Echarts
-    },
     data(){
         return {
+            allComps,
+            dataList:dataList.map((e,i)=>{
+                return {
+                    ...e,
+                    index: i
+                }
+            }),
             searchKey:'',
-            opt:{
-                xAxis: {
-                    type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [{
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
-                    type: 'line'
-                }]
-            }
+        }
+    },
+    computed:{
+        showList(){
+            return this.dataList.filter(item=>item.label.indexOf(this.searchKey) != -1)
         }
     },
     mounted(){
-        
+        // 因为滚动区域不是全部视口，所以需要在offsetTop的基础上减去头部导航的高度
+        this.dataList.forEach((item,index)=>{
+            item.offsetTop = $("#comp-" + index).offset().top - $('header').outerHeight(true)
+        })
+
+        // 监听滚动事件
+        $(".main-content").on('scroll',e=>{
+            let toTop = $(".main-content").scrollTop()
+            let n = this.dataList.length
+            for(var i=0;i<n;i++){
+                const item = this.dataList[i]
+                const bottomVal = item.offsetTop + $("#comp-" + i).outerHeight(true)
+                if(toTop>=item.offsetTop && toTop < bottomVal){
+                    this.$refs.navList.activeIndex = i
+                    break
+                }
+            }
+        })
+    },
+    methods:{
+        scroll(item){
+            $(".main-content").animate({scrollTop:item.offsetTop}, 500) 
+        }
     }
 }
 </script>

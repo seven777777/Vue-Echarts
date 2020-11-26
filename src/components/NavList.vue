@@ -1,7 +1,14 @@
 <template>
     <ul class="navList">
-        <li class="listItem" v-for="(item,index) in 30" :key="index">折线图</li>
-        <li class="listItem active">柱状图</li>
+        <li v-if="listData.length == 0" class="listItem nodata">暂无数据</li>
+        <li
+            v-else
+            :class="['listItem',{'active':item.index == activeIndex}]"
+            v-for="(item,index) in listData"
+            :key="index"
+            @click="change(item)">
+            {{item.label}}
+        </li>
     </ul>
 </template>
 
@@ -18,7 +25,13 @@ export default {
     },
     data(){
         return {
-            
+            activeIndex: 0
+        }
+    },
+    methods:{
+        change(item){
+            this.activeIndex = item.index
+            this.$emit('change',item)
         }
     }
 }
@@ -41,6 +54,11 @@ export default {
             border-left-color: #0091e6;
             font-weight: bold;
             background-color: #2d2e3e;
+        }
+        &.nodata{
+            text-align: center;
+            color: #999;
+            margin-top: 10px;
         }
     }
 }
