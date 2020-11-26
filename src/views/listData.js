@@ -4,7 +4,7 @@ export default [
         component:'baseDesc'
     },
     {
-        label:'基本图表',
+        label:'基础直角坐标图表',
         component:'baseChart'
     }
 ]

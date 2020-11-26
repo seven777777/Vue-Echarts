@@ -4,7 +4,22 @@
             <Echarts :options="opt" />
         </div>
         <div class="item-box--block desc">
-            123
+<pre>
+    <code>
+baseChartsObj:{
+    xAxisData:["分类1", "分类2", "分类2", "分类4", "分类5", "分类6"],
+    chartData: [
+        {
+            name: '数据1',
+            unit: '%',
+            value:[12,18,34,26,67,10],
+            color: blueGradientBarColor,
+            type: 'line'
+        }
+    ]
+}
+    </code>
+</pre>
         </div>
     </module>
 </template>
@@ -16,45 +31,12 @@ export default {
     mixins:[moduleComonMixin],
     data(){
         return {
-            opt:{
-                xAxis: {
-                    type: 'category',
-                    axisLabel:{
-                        color:'white'
-                    },
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-                },
-                yAxis: {
-                    type: 'value',
-                    axisLabel:{
-                        color:'white'
-                    },
-                    axisLine:{
-                        show: true,
-                        lineStyle: {
-                            color: '#E7E9ED'
-                        },
-                    },
-                    axisTick:{
-                        show: false,
-                    },
-                    splitLine:{
-                        show:false,
-                        lineStyle:{
-                            color: ['#C5D0DE'],
-                            opacity:0.3
-                        }
-                    }
-                },
-                series: [{
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
-                    type: 'line'
-                }]
-            }
+            opt:{}
         }
     },
     mounted(){
-        
+        let chartOpt = this.mockEchartsData.baseChartsObj
+        this.opt = this.echartsSet.baseChartsOpt(chartOpt)
     }
 }
 </script>
