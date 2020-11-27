@@ -3,7 +3,12 @@
         <div class="item-box--block charts">
             <Echarts :options="opt" />
         </div>
-        <CodeBlock :curCode="curCode" class="mt_8"></CodeBlock>
+        <div class="item-box--block charts">
+            <Echarts :options="opt2" />
+        </div>
+        <div class="item-box--block charts">
+            <Echarts :options="pieOpt" />
+        </div>
     </module>
 </template>
 
@@ -15,28 +20,17 @@ export default {
     data(){
         return {
             opt:{},
-            curCode:''
-            
+            opt2:{},
+            pieOpt:{}
         }
     },
     mounted(){
         let chartOpt = this.mockEchartsData.baseChartsObj
         this.opt = this.echartsSet.baseChartsOpt(chartOpt)
-
-        this.curCode = `//数据
-baseChartsObj:{
-    xAxisData:["分类1", "分类2", "分类2", "分类4", "分类5", "分类6"],
-    chartData: [
-        {
-            name: '数据1',
-            unit: '%',
-            value:[12,18,34,26,67,10],
-            color: blueGradientBarColor,
-            type: 'line'
-        }
-    ]
-}`
-        
+        let chartOpt2 = this.mockEchartsData.baseChartsObj2
+        this.opt2 = this.echartsSet.baseChartsOpt(chartOpt2)
+        let chartOptPie = this.mockEchartsData.pieChartsObj
+        this.pieOpt = this.echartsSet.pieChartsOpt(chartOptPie)
     }
 }
 </script>

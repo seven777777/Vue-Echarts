@@ -45,8 +45,10 @@ export default {
     },
     mounted(){
         // 因为滚动区域不是全部视口，所以需要在offsetTop的基础上减去头部导航的高度
-        this.dataList.forEach((item,index)=>{
-            item.offsetTop = $("#comp-" + index).offset().top - $('header').outerHeight(true)
+        this.$nextTick(()=>{
+            this.dataList.forEach((item,index)=>{
+                item.offsetTop = $("#comp-" + index).offset().top - $('header').outerHeight(true)
+            })
         })
 
         // 监听滚动事件
