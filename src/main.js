@@ -12,9 +12,15 @@ Vue.config.productionTip = false
 import NavList from '@/components/NavList'
 import Echarts from '@/components/Echarts.vue'
 import Module from '@/components/Module.vue'
+import CodeBlock from '@/components/CodeBlock.vue'
 Vue.component('NavList', NavList);
 Vue.component('Echarts', Echarts);
 Vue.component('Module', Module);
+Vue.component('CodeBlock', CodeBlock);
+
+import VueCodeMirror from 'vue-codemirror'
+import 'codemirror/lib/codemirror.css'
+Vue.use(VueCodeMirror)
 
 new Vue({
   router,
