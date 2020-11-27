@@ -52,7 +52,19 @@ export default {
         })
 
         // 监听滚动事件
-        $(".main-content").on('scroll',e=>{
+        $(".main-content").bind('scroll',this.scrollHandler)
+    },
+    methods:{
+        scroll(item){
+            $(".main-content").unbind('scroll',this.scrollHandler)
+
+            $(".main-content").animate({scrollTop:item.offsetTop}, 500)
+            
+            setTimeout(()=>{
+                $(".main-content").bind('scroll',this.scrollHandler)
+            }, 600)
+        },
+        scrollHandler(e){
             let toTop = $(".main-content").scrollTop()
             let n = this.dataList.length
             for(var i=0;i<n;i++){
@@ -63,11 +75,6 @@ export default {
                     break
                 }
             }
-        })
-    },
-    methods:{
-        scroll(item){
-            $(".main-content").animate({scrollTop:item.offsetTop}, 500) 
         }
     }
 }
