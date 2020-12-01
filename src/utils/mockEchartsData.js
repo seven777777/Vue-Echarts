@@ -23,7 +23,7 @@ export default {
         chartData: [
             {
                 name: '数据1',
-                unit: '%',
+                unit: '个',
                 value:[12,18,34,26,67,10],
                 color: blueGradientBarColor,
                 type: 'bar'
@@ -37,7 +37,7 @@ export default {
             },
             {
                 name: '数据3',
-                unit: '个',
+                unit: '%',
                 value:[6,11,24,16,11,30],
                 color: greenGradientBarColor,
                 type: 'line'

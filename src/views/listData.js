@@ -8,15 +8,15 @@ export default [
         component:'baseChart'
     },
     {
-        label:'外部设置legend点击事件',
+        label:'legend-外部设置点击事件',
         component:'legendClickDiy'
     },
-    // {
-    //     label:'自定义tooltip',
-    //     component:'diyTooltip'
-    // },
     {
-        label:'默认显示并轮播显示的tooltip',
+        label:'tooltip-自定义样式',
+        component:'diyTooltip'
+    },
+    {
+        label:'tooltip-默认显示并轮播显示',
         component:'defaultShowTooltip'
     },
 ]

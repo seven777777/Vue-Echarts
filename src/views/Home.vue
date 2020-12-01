@@ -102,6 +102,7 @@ export default {
             align-items: center;
             justify-content: center;
             .search-ipt{
+                width: 200px;
                 background-color: rgba(45,46,62,.8);
                 border: 1px solid #2d2e3e;
                 border-radius: 4px;
