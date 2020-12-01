@@ -7,6 +7,11 @@
             <div class="listCon">
                 <NavList ref="navList" :listData="showList" @change="scroll" />
             </div>
+            <div class="linkMe">
+                <a href="https://github.com/seven777777/vue-echarts" target="_bank">
+                    <i class="iconfont icongithub"></i>
+                </a>
+            </div>
         </div>
         <div class="main-content">
             <component
@@ -59,7 +64,7 @@ export default {
             $(".main-content").unbind('scroll',this.scrollHandler)
 
             $(".main-content").animate({scrollTop:item.offsetTop}, 500)
-            
+
             setTimeout(()=>{
                 $(".main-content").bind('scroll',this.scrollHandler)
             }, 600)
@@ -112,7 +117,16 @@ export default {
             }
         }
         .listCon{
-            height: calc(100% - 40px);
+            height: calc(100% - 40px - 60px);
+        }
+        .linkMe{
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+                font-size: 20px;
+            }
         }
     }
     .main-content{

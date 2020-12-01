@@ -4,11 +4,19 @@
             目前封装的基础图表比较简单，其他一些常用的配置可以直接查询<a target="_bank" href="https://echarts.apache.org/zh/index.html">Echarts官网</a>，
             以下的一些例子多是基于官方配置的一些扩展和稍复杂的场景进行记录。
         </div>
+        <p class="item-box--block desc">示例中的一些布局使用了ElementUI前端组件库</p>
+        <p class="item-box--block desc">
+            为了方便使用，该项目封装了一个全局公共的Echarts组件。封装的组件中暴露了一下方法，可供调用组建时使用，如鼠标事件和action事件等。<br/>具体可以直接通过页面左下角的入口查看源码了解。
+            使用方法如下：
+        </p>
+        <CodeBlock :curCode="useCode" class="mt_8"></CodeBlock>
         <p class="item-box--block desc">
             基于大量的项目经验，对于页面中大量出现图表的情况，以下这些数据结构更便于封装<br/>
             so~该项目的图表封装，如无特殊说明，均采用下方的数据结构
         </p>
-        <CodeBlock :curCode="lineBarCode" class="mt_8"></CodeBlock>
+        <CodeBlock :curCode="optCode" class="mt_8"></CodeBlock>
+        
+        
     </module>
 </template>
 
@@ -19,11 +27,16 @@ export default {
     mixins:[moduleComonMixin],
     data(){
         return {
-            lineBarCode:''
+            useCode:'',
+            optCode:''
         }
     },
     mounted(){
-        this.lineBarCode = `//数据结构-直角坐标系
+        this.useCode = `//Echarts组件
+// 需要注册一下组件，然后使用
+<Echarts ref="myChart" :options="opt" />
+`
+        this.optCode = `//数据结构-直角坐标系
 baseChartsObj:{
     xAxisData:["分类1", "分类2", "分类2", "分类4", "分类5", "分类6"],
     chartData: [

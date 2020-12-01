@@ -1,0 +1,16 @@
+{
+  "id": "2239838",
+  "name": "vueEcharts",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14343651",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
