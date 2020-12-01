@@ -6,6 +6,7 @@
             :class="['listItem',{'active':item.index == activeIndex}]"
             v-for="(item,index) in listData"
             :key="index"
+            :title="item.label"
             @click="change(item)">
             {{item.label}}
         </li>
@@ -50,6 +51,7 @@ export default {
         cursor: pointer;
         white-space: nowrap;
         line-height: 36px;
+        @include text-ellipsis;
         &.active{
             border-left-color: #0091e6;
             font-weight: bold;

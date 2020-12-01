@@ -15,4 +15,8 @@ export default [
     //     label:'自定义tooltip',
     //     component:'diyTooltip'
     // },
+    {
+        label:'默认显示并轮播显示的tooltip',
+        component:'defaultShowTooltip'
+    },
 ]

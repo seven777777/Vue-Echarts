@@ -20,7 +20,7 @@
 <script>
 import moduleComonMixin from '../moduleCommonMixin'
 export default {
-    name: 'legendClickDiy',
+    name: 'defaultShowTooltip',
     mixins:[moduleComonMixin],
     data(){
         return {

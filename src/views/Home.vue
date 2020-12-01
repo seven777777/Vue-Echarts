@@ -90,7 +90,7 @@ export default {
     height: 100%;
     display: flex;
     .navBar{
-        width: 194px;
+        width: 220px;
         height: 100%;
         background: linear-gradient(0deg,#2f3041,#36394d);
         box-shadow: 6px 0 6px 0 rgba(0,0,0,.25);
