@@ -19,4 +19,12 @@ export default [
         label:'tooltip-默认显示并轮播显示',
         component:'defaultShowTooltip'
     },
+    {
+        label:'折线图-连接断开空数据',
+        component:'connectNulls'
+    },
+    {
+        label:'折线图-部分虚线',
+        component:'linePartDashed'
+    },
 ]

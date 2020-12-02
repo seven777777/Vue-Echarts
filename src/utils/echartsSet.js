@@ -25,6 +25,9 @@ export default {
                     color: baseTxtColor
                 }
             },
+            tooltip:{
+                trigger: "axis",
+            },
             xAxis: {
                 type: 'category',
                 axisLabel:{
