@@ -7,8 +7,7 @@
         <p class="item-box--block desc">示例中的一些布局使用了ElementUI前端组件库</p>
         <p class="item-box--block desc">
             为了方便使用，该项目封装了一个全局公共的Echarts组件。封装的组件中暴露了一下方法，可供调用组建时使用，如鼠标事件和action事件等。<br/>
-            具体可以直接通过页面左下角的入口查看源码了解。<br/>
-            或者直接点击<a target="_bank" href="https://github.com/seven777777/vue-echarts/blob/main/src/components/Echarts.vue">传送门</a><br/>
+            具体可以直接通过页面左下角的入口查看源码了解,或者直接点击<a target="_bank" href="https://github.com/seven777777/vue-echarts/blob/main/src/components/Echarts.vue">传送门</a><br/>
             使用方法如下：
         </p>
         <CodeBlock :curCode="useCode" class="mt_8"></CodeBlock>
